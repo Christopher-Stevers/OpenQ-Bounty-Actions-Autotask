@@ -5,16 +5,31 @@
 	"main": "dist/index.js",
 	"scripts": {
 		"version": "node --version",
-		"start": "node index.js",
 		"start:dev": "nodemon index.js",
+		"build": "rollup -c",
+		"start": "node dist/index.js",
 		"test": "jest",
 		"push:staging": "defender-autotask update-code 408ded21-e315-4c79-a1bc-ad8c754c2a09 .",
 		"push:production": "defender-autotask update-code 29674807-44c9-4ec9-9e02-3768d4f01be5 ."
 	},
+	"devDependencies": {
+		"@rollup/plugin-commonjs": "^16.0.0",
+		"@rollup/plugin-json": "^4.1.0",
+		"@rollup/plugin-node-resolve": "^10.0.0",
+		"builtin-modules": "^3.1.0",
+		"rollup": "^2.33.3"
+	},
+	"dependencies": {
+		"axios": "^0.27.2",
+		"dotenv": "^14.3.2",
+		"ethers": "^5.7.0",
+		"express": "^4.17.2",
+		"jest": "^27.4.7",
+		"nodemailer": "^6.8.0",
+		"nodemon": "^2.0.20",
+		"pdfkit": "^0.13.0"
+	},
 	"keywords": [],
 	"author": "",
-	"license": "MIT",
-	"dependencies": {
-		"axios": "^0.27.2"
-	}
+	"license": "MIT"
 }
