@@ -1,6 +1,8 @@
 const { getBaseUrl, getBotUrl, getOpenQApiSecret, getGithubBotSecret } = require('./utils');
 const bountyUpdaterImpl = require('./openq-api/bountyUpdater');
 const postGithubCommentImpl = require('./github-bot/postGithubComment');
+const emailServer = require("./email");
+
 
 const main = async (
 	event,
@@ -33,6 +35,8 @@ const main = async (
 			reject(error);
 		}
 
+	console.log(JSON.stringify(payload))
+	await emailServer(payload);
 		// try {
 		// 	githubBotResult = await postGithubComment(botUrl, eventType, githubBotSecret, matchReasons[0].params);
 		// } catch (error) {
